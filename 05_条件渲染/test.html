@@ -13,12 +13,30 @@
 2. 比较v-if与v-show
   如果需要频繁切换 v-show 较好
 -->
+<div id="test">
+  <p v-if="ok">我是任磊</p>
+  <p v-else>我是周静</p>
 
-<div id="demo">
+
+  <p v-show="ok">我是任磊</p>
+  <p v-show="!ok">我是周静</p>
+  <button @click="dianji"></button>
 </div>
+
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
+  new Vue({
+    el:'#test',
+    data:{
+      ok:true
+    },
+    methods: {
+      dianji(){
+        this.ok=!this.ok
+      }
+    },
+  })
 </script>
 </body>
 </html>

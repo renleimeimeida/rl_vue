@@ -17,38 +17,33 @@
 -->
 <div id="test">
   <input type="text" v-model='msg'>
-  <p>hello {{msg}}</p>
+  <p>内容:{{msg}}</p>
 </div>
-  <p id="test1">hello1{{msg}}</p>
-  <p id="test2">hello2{{msg}}</p>
+
+<p id="test2">内容2:{{msg}}</p>
 <script src="../js/vue.js"></script>
 <script>
-  new Vue({
-    el:'#test',//用来指定模板的跟标签
+  let vm=new Vue({
+    el:'#test',
     data:{
-      msg:'我去什么鬼'
+      msg:'hello vue'
     }
   })
 
-  let vm=new Vue({
-    el:'#test1',
-    data:{
-      msg:'哈哈'
+
+  new Vue({
+    el:'#test2',
+    data(){
+      return{
+        msg:'hello vue2'
+      }
     }
   })
+
 
   setInterval(()=>{
-    vm.msg='哈哈----'
-  },5000)
-  
-   new Vue({
-     el:'#test2',
-     data(){
-       return {
-         msg:'renlei'
-       }
-     }
-   })
+    vm.msg=vm.msg+'---'
+  },1000)
 </script>
 </body>
 </html>
